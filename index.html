@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Ed's Weather Dashboard</title>
+</head>
+
+<body>
+    <div class="container-fluid text-center">
+        <h1>Ed's Weather Dashboard</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col search-section">
+                <h2>Search for City</h2>
+                <form id="search-form">
+                    <input id="search-city" type="text" />
+                    <button type="submit">Search</button>
+                </form>
+                <div id="search-history"></div>
+            </div>
+            <div class="col" id="search-results">
+                <div id="todays-forecast">
+                    <h3>
+                        <span id="city-name"></span>
+                        <span id="todays-date"></span>
+                    </h3>
+                    <div>Temp:
+                        <span id="temp-value"></span>
+                    </div>
+                    <div>Wind:
+                        <span id="wind-value"></span>
+                    </div>
+                    <div>Humidity:
+                        <span id="humidity-value"></span>
+                    </div>
+                    <div>UV Index:
+                        <span id="uv-value"></span>
+                    </div>
+                </div>
+                <div id="five-day-forecast">
+                    <h3>Five-Day Forecast</h3>
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h5>
+                                        <span id="future-date-0"></span>
+                                    </h5>
+                                    <div>Temp:
+                                        <span id="temp-value-0"></span>
+                                    </div>
+                                    <div>Wind:
+                                        <span id="wind-value-0"></span>
+                                    </div>
+                                    <div>Humidity:
+                                        <span id="humidity-value-0"></span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>
+                                        <span id="future-date-1"></span>
+                                    </h5>
+                                    <div>Temp:
+                                        <span id="temp-value-1"></span>
+                                    </div>
+                                    <div>Wind:
+                                        <span id="wind-value-1"></span>
+                                    </div>
+                                    <div>Humidity:
+                                        <span id="humidity-value-1"></span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>
+                                        <span id="future-date-2"></span>
+                                    </h5>
+                                    <div>Temp:
+                                        <span id="temp-value-2"></span>
+                                    </div>
+                                    <div>Wind:
+                                        <span id="wind-value-2"></span>
+                                    </div>
+                                    <div>Humidity:
+                                        <span id="humidity-value-2"></span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>
+                                        <span id="future-date-3"></span>
+                                    </h5>
+                                    <div>Temp:
+                                        <span id="temp-value-3"></span>
+                                    </div>
+                                    <div>Wind:
+                                        <span id="wind-value-3"></span>
+                                    </div>
+                                    <div>Humidity:
+                                        <span id="humidity-value-3"></span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>
+                                        <span id="future-date-4"></span>
+                                    </h5>
+                                    <div>Temp:
+                                        <span id="temp-value-4"></span>
+                                    </div>
+                                    <div>Wind:
+                                        <span id="wind-value-4"></span>
+                                    </div>
+                                    <div>Humidity:
+                                        <span id="humidity-value-4"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
