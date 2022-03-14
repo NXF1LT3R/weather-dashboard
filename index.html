@@ -1,140 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Ed's Weather Dashboard</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <div class="container-fluid text-center">
-        <h1>Ed's Weather Dashboard</h1>
-    </div>
+    <header class="jumbotron jumbotron-fluid custom-jumbotron text-light">
+        <div class="container-fluid text-center">
+            <h1 class="display-4">Weather Dashboard</h1>
+            <p class="lead">Weather without the fuss!</p>
+        </div>
+    </header>
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col search-section">
-                <h2>Search for City</h2>
-                <form id="search-form">
-                    <input id="search-city" type="text" />
-                    <button type="submit">Search</button>
-                </form>
-                <div id="search-history"></div>
+
+            <div class= "col-12 col-sm-12 col-md-12 col-lg-3"">
+                <div id="search-card" class= "card px-4 py-4 bg-dark text-light">
+                    <h2>Search For Your City Here:</h2>
+                    <form class= "border-bottom mb-2">
+                        <input type="text" class="form-control mb-2" id="city-search" placeholder="Enter City Here" autocomplete="off">
+                        <button class="btn btn-primary btn-block mb-2" id="city-search-button">Search</button>
+                    </form>
+                    <div id="search-buttons"></div>
+                </div>
             </div>
-            <div class="col" id="search-results">
-                <div id="todays-forecast">
-                    <h3>
-                        <span id="city-name"></span>
-                        <span id="todays-date"></span>
-                    </h3>
-                    <div>Temp:
-                        <span id="temp-value"></span>
-                    </div>
-                    <div>Wind:
-                        <span id="wind-value"></span>
-                    </div>
-                    <div>Humidity:
-                        <span id="humidity-value"></span>
-                    </div>
-                    <div>UV Index:
-                        <span id="uv-value"></span>
+<!-- ==> Main Weather Dashboard <== -->
+            <div class="col-12 col-md-12 col-lg-9">
+                <div class="row p-3 m-1">
+                    <div id="main-card" class="card col-12 text-light">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 text center p-2">
+                                <h2><span id="main-card-city"></span><span id="main-card-date"></span></h2>
+                                <img id="main-card-icon">
+                            </div>
+                            <div class="col-12 col-lg-8 d-flex align-items-center justify-content-between">
+                                <div class="container">
+                                    <div class="row d-flex justify-content-around">
+                                        <div class="main-text col-12 col-lg-2 text-center border rounded m-2 p-2">
+                                            <p>Temp:</p>
+                                            <span id="main-card-temp"></span>
+                                        </div>
+                                        <div class="main-text col-12 col-lg-2 text-center border rounded m-2 p-2">
+                                            <p>Humidity:</p>
+                                            <span id="main-card-humidity"></span>
+                                        </div>
+                                        <div class="main-text col-12 col-lg-2 text-center border rounded m-2 p-2">
+                                            <p>Wind:</p>
+                                            <span id="main-card-wind"></span>
+                                        </div>
+                                        <div class="main-text col-12 col-lg-2 align-self-center">
+                                            <a href="https://www.epa.gov/sunsaftey/uv-index-scale-0" target="_blank"><p>UVI: <span id="main-card-uv"></span></p></a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="five-day-forecast">
-                    <h3>Five-Day Forecast</h3>
-                    <div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <h5>
-                                        <span id="future-date-0"></span>
-                                    </h5>
-                                    <div>Temp:
-                                        <span id="temp-value-0"></span>
-                                    </div>
-                                    <div>Wind:
-                                        <span id="wind-value-0"></span>
-                                    </div>
-                                    <div>Humidity:
-                                        <span id="humidity-value-0"></span>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5>
-                                        <span id="future-date-1"></span>
-                                    </h5>
-                                    <div>Temp:
-                                        <span id="temp-value-1"></span>
-                                    </div>
-                                    <div>Wind:
-                                        <span id="wind-value-1"></span>
-                                    </div>
-                                    <div>Humidity:
-                                        <span id="humidity-value-1"></span>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5>
-                                        <span id="future-date-2"></span>
-                                    </h5>
-                                    <div>Temp:
-                                        <span id="temp-value-2"></span>
-                                    </div>
-                                    <div>Wind:
-                                        <span id="wind-value-2"></span>
-                                    </div>
-                                    <div>Humidity:
-                                        <span id="humidity-value-2"></span>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5>
-                                        <span id="future-date-3"></span>
-                                    </h5>
-                                    <div>Temp:
-                                        <span id="temp-value-3"></span>
-                                    </div>
-                                    <div>Wind:
-                                        <span id="wind-value-3"></span>
-                                    </div>
-                                    <div>Humidity:
-                                        <span id="humidity-value-3"></span>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <h5>
-                                        <span id="future-date-4"></span>
-                                    </h5>
-                                    <div>Temp:
-                                        <span id="temp-value-4"></span>
-                                    </div>
-                                    <div>Wind:
-                                        <span id="wind-value-4"></span>
-                                    </div>
-                                    <div>Humidity:
-                                        <span id="humidity-value-4"></span>
-                                    </div>
-                                </div>
-                            </div>
+
+                <!-- ==> 5 Day Forecast Cards <== -->
+                <div class="container col-12">
+                    <div class="row d-flex justify-content-around ">
+                        <h3 class="col-12">5-Day Forecast</h3>
+                        <!-- DAY 1 -->
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 forecast-card">
+                            <h4 class="forecast-date"></h4>
+                            <img class="forecast-icon">
+                            <p>Temp: <span class="forecast-temp"></span></p>
+                            <p>Wind: <span class="forecast-wind"></span></p>
+                            <p>Humidity: <span class="forecast-humidity"></span></p>
+                        </div>
+    
+                        <!-- DAY 2 -->
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 forecast-card">
+                            <h4 class="forecast-date"></h4>
+                            <img class="forecast-icon">
+                            <p>Temp: <span class="forecast-temp"></span></p>
+                            <p>Wind: <span class="forecast-wind"></span></p>
+                            <p>Humidity: <span class="forecast-humidity"></span></p>
+                        </div>
+    
+                        <!-- DAY 3 -->
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 forecast-card">
+                            <h4 class="forecast-date"></h4>
+                            <img class="forecast-icon">
+                            <p>Temp: <span class="forecast-temp"></span></p>
+                            <p>Wind: <span class="forecast-wind"></span></p>
+                            <p>Humidity: <span class="forecast-humidity"></span></p>
+                        </div>
+    
+                        <!-- DAY 4 -->
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 forecast-card">
+                            <h4 class="forecast-date"></h4>
+                            <img class="forecast-icon">
+                            <p>Temp: <span class="forecast-temp"></span></p>
+                            <p>Wind: <span class="forecast-wind"></span></p>
+                            <p>Humidity: <span class="forecast-humidity"></span></p>
+                        </div>
+    
+                        <!-- DAY 5 -->
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 forecast-card">
+                            <h4 class="forecast-date"></h4>
+                            <img class="forecast-icon">
+                            <p>Temp: <span class="forecast-temp"></span></p>
+                            <p>Wind: <span class="forecast-wind"></span></p>
+                            <p>Humidity: <span class="forecast-humidity"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
-
-
- <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
-
 </html>
